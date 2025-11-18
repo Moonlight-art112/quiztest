@@ -38,18 +38,17 @@
             color: var(--text-color);
             text-align: center;
             margin-bottom: 20px;
-            /* Убрана тень у букв */
         }
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid #605B54; /* Более светлый кремовый для разделителя */
+            border-bottom: 1px solid #605B54; 
         }
         
         /* Особый стиль для секций, где текст должен быть БЕЛЫМ */
         .section-light-text, .section-light-text * {
             color: var(--text-color) !important;
-            text-shadow: none !important; /* Убираем тень */
+            text-shadow: none !important; 
         }
         
         /* Секции, которые должны быть БЕЛЫМИ (для контраста) */
@@ -57,10 +56,10 @@
             background-color: var(--section-bg-alt); 
         }
         .section-dark-text, .section-dark-text h2, .section-dark-text h3, .section-dark-text p, .section-dark-text li, .section-dark-text a {
-             color: #333 !important; /* Черный текст */
+             color: #333 !important; 
         }
         .section-dark-text h2, .section-dark-text h3 {
-            color: var(--primary-color) !important; /* Акцентные заголовки */
+            color: var(--primary-color) !important; 
         }
 
 
@@ -78,9 +77,15 @@
         }
 
         .header-top .contacts a {
-            margin-left
+            margin-left: 15px; /* <--- ИСПРАВЛЕНИЕ ЗДЕСЬ */
+            color: var(--text-color); 
+            text-decoration: none;
+            font-weight: bold;
+        } /* <-- ЗАКРЫТЬ ПРАВИЛО CSS */
 
-    <script>
+        /* ... ДОЛЖЕН БЫЛ БЫТЬ ОСТАЛЬНОЙ CSS, НО Я ЗАВЕРШАЮ БЛОК... */
+        
+    </style> <script>
     (function(w, d, s, o){
       var j = d.createElement(s); j.async = true; j.src = 'https://script.marquiz.ru/v2.js';j.onload = function() {
         if (document.readyState !== 'loading') Marquiz.init(o);
@@ -245,4 +250,5 @@
 
 </body>
 </html>
+
 
