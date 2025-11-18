@@ -3,28 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Торты на заказ | Авторский дизайн и натуральные ингредиенты</title>
+    <title>Торты на заказ в Обнинске | ПП-десерты без сахара</title>
     
     <style>
-        /* Импортируем шрифт для всего сайта */
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        /* Импортируем красивые шрифты */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap');
 
         :root {
-            --primary-color: #DB3081; /* Розовый/ягодный (Акцент) */
-            --text-color: #FFFFFF; /* Белый цвет для основного текста */
-            --dark-cream-bg: #4B443B; /* Темный кремовый/кофейный фон */
-            --header-bg: #3A352F; /* Еще более темный оттенок для шапки */
-            --section-bg-alt: #FFFFFF; /* Белый цвет для секций с контрастным текстом */
-            --font-main: 'Montserrat', sans-serif; /* Красивый, современный шрифт */
+            /* ЦВЕТОВАЯ ПАЛИТРА */
+            --primary-color: #C7465A; /* Темная малина (Акцент) */
+            --secondary-color: #A8C69F; /* Фисташковый (Здоровье/ПП) */
+            --bg-main: #FBF7F0; /* Светло-кремовый (Основной фон) */
+            --bg-alt: #FFFFFF; /* Белый (Контраст) */
+            --text-dark: #4A3732; /* Темное какао (Основной текст) */
+            --text-light: #FFFFFF; /* Белый */
+
+            /* ШРИФТЫ */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
         }
 
         body {
-            font-family: var(--font-main);
-            color: var(--text-color); 
+            font-family: var(--font-body);
+            color: var(--text-dark); /* Основной текст ТЕМНЫЙ */
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: var(--dark-cream-bg); 
+            background-color: var(--bg-main); /* Кремовый фон */
         }
 
         .container {
@@ -35,57 +40,187 @@
         }
 
         h1, h2, h3 {
-            color: var(--text-color);
+            font-family: var(--font-heading);
+            color: var(--primary-color); /* Заголовки акцентного цвета */
             text-align: center;
             margin-bottom: 20px;
+            text-shadow: none;
+        }
+        h1 {
+            font-size: 3em;
         }
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid #605B54; 
+            border-bottom: 1px solid #E0DCD4; /* Легкий разделитель */
         }
         
-        /* Особый стиль для секций, где текст должен быть БЕЛЫМ */
-        .section-light-text, .section-light-text * {
-            color: var(--text-color) !important;
-            text-shadow: none !important; 
-        }
-        
-        /* Секции, которые должны быть БЕЛЫМИ (для контраста) */
-        .section-dark-text {
-            background-color: var(--section-bg-alt); 
-        }
-        .section-dark-text, .section-dark-text h2, .section-dark-text h3, .section-dark-text p, .section-dark-text li, .section-dark-text a {
-             color: #333 !important; 
-        }
-        .section-dark-text h2, .section-dark-text h3 {
-            color: var(--primary-color) !important; 
-        }
-
-
-        /* А. Первый Экран (Header) */
+        /* Стили для ссылок и контактов в шапке */
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 5%;
-            background-color: var(--header-bg); 
-            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            background-color: var(--bg-alt); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .header-top .contacts a {
-            margin-left: 15px; /* <--- ИСПРАВЛЕНИЕ ЗДЕСЬ */
-            color: var(--text-color); 
+            margin-left: 15px;
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: bold;
-        } /* <-- ЗАКРЫТЬ ПРАВИЛО CSS */
+        }
 
-        /* ... ДОЛЖЕН БЫЛ БЫТЬ ОСТАЛЬНОЙ CSS, НО Я ЗАВЕРШАЮ БЛОК... */
+        /* А. Первый Экран (Hero) */
+        .hero {
+            background: url('[Фон с красивым тортом]') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light); /* Белый текст на картинке */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Легкая тень для контраста на фоне */
+        }
+
+        .hero h1, .hero p {
+            color: var(--text-light);
+        }
+
+        .button-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button-primary:hover {
+            background-color: #A33A4A;
+        }
         
-    </style> <script>
+        /* Б. Каталог/Ассортимент - Карточки товаров */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--bg-alt);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 1.2em;
+            color: var(--text-dark);
+            margin: 15px 0 5px;
+        }
+
+        .price-info {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* В. Как Сделать Заказ (Процесс) */
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .step {
+            width: 200px;
+            padding: 20px;
+        }
+        .step h3 {
+            color: var(--text-dark);
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        .step-icon {
+            font-size: 2em;
+            color: var(--secondary-color); /* Фисташковый акцент */
+            margin-bottom: 10px;
+        }
+        
+        /* Д. Контакты и Форма Заказа - Красивая форма */
+        #contact {
+            background-color: var(--bg-alt);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Форма шире, контакты уже */
+            gap: 50px;
+        }
+
+        .contact-form {
+            background-color: var(--bg-main); /* Форма на кремовом фоне */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #E0DCD4;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+            color: var(--text-dark);
+        }
+        .contact-form button {
+            background-color: var(--secondary-color); /* Фисташковая кнопка для выделения */
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #8CA984;
+        }
+        
+        .contact-info a {
+            color: var(--primary-color);
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
     (function(w, d, s, o){
       var j = d.createElement(s); j.async = true; j.src = 'https://script.marquiz.ru/v2.js';j.onload = function() {
         if (document.readyState !== 'loading') Marquiz.init(o);
@@ -98,8 +233,8 @@
         host: '//quiz.marquiz.ru',
         region: 'ru',
         id: '6720e48b9f02ba0026853f9e',
-        autoOpen: 0, 
-        openOnExit: false 
+        autoOpen: 15, 
+        openOnExit: true 
       }
     );
     </script>
@@ -108,82 +243,60 @@
 
     <div class="header-top">
         <div class="logo">
-            <a href="#" style="font-size: 1.5em; color: var(--primary-color); text-decoration: none; font-weight: bold;">SweetDreams</a>
+            <a href="#" style="font-size: 1.5em; color: var(--primary-color); text-decoration: none; font-weight: bold;">[SweetDreams]</a>
         </div>
         <div class="contacts">
             <a href="tel:+79991234567">+7 (999) 123-45-67</a> 
-            <a href="https://wa.me/79991234567" target="_blank">[WA]</a>
-            <a href="https://t.me/yourtelegram" target="_blank">[TG]</a>
+            <a href="https://wa.me/79991234567" target="_blank">WhatsApp</a>
         </div>
     </div>
 
     <section class="hero">
-        <h1>Торты на заказ в Москве за 48 часов с авторским дизайном</h1>
-        <p style="font-size: 1.2em;">Только натуральные ингредиенты. Более 50 уникальных начинок.</p>
+        <h1>Торты в Обнинске за 48 часов: Натуральный состав и Авторский Дизайн</h1>
+        <p style="font-size: 1.2em;">Эксклюзивно: ПП-десерты без сахара на эритрите. Вкусно и полезно!</p>
         
-        <a href="#marquiz_button" class="button-primary">Рассчитать стоимость торта</a>
-        
-        <div style="display: none;" data-marquiz-id="6720e48b9f02ba0026853f9e"></div>
-        <script>
-        (function(t, p) {window.Marquiz ? Marquiz.add([t, p]) : document.addEventListener('marquizLoaded', function() {Marquiz.add([t, p])})})('Button', {
-            id: '6720e48b9f02ba0026853f9e', 
-            buttonText: 'Рассчитать стоимость торта', // Этот текст скрыт, так как мы используем собственную ссылку
-            fixed: false, 
-            modal: true
-        })
-        </script>
+        <div data-marquiz-id="6720e48b9f02ba0026853f9e"></div>
+<script>(function(t, p) {window.Marquiz ? Marquiz.add([t, p]) : document.addEventListener('marquizLoaded', function() {Marquiz.add([t, p])})})('Button', {id: '6720e48b9f02ba0026853f9e', buttonText: '«Старт»', bgColor: '#f054d3', textColor: '#ffffff', rounded: true, shadow: false, blicked: true, fixed: false, disableOnMobile: false})</script>
     </section>
 
     <section id="catalog">
         <div class="container">
             <h2>Наши Десерты</h2>
             <div class="categories-nav">
-                <a href="#category-cakes">Торты</a>
-                <a href="#category-cupcakes">Капкейки</a>
-                <a href="#category-sets">Наборы</a>
+                <a href="#category-cakes" style="color: var(--primary-color);">Торты</a>
+                <a href="#category-cupcakes" style="color: var(--primary-color);">Капкейки</a>
+                <a href="#category-sets" style="color: var(--secondary-color); font-weight: 700;">ПП / Без сахара</a>
             </div>
             
             <div class="catalog-grid" id="category-cakes">
                 <div class="product-card">
                     <img src="[Фото Красный Бархат]" alt="Торт Красный Бархат">
                     <h3>Красный Бархат</h3>
-                    <p class="price-info">3000 руб. за 1 кг (мин. вес 2 кг)</p>
+                    <p class="price-info">3000 руб. за 1 кг</p>
                     <p style="padding: 0 15px;">Нежные влажные коржи с легким шоколадным ароматом, крем-чиз на сливках.</p>
                 </div>
-                <div class="product-card">
-                    <img src="[Фото Медовик]" alt="Торт Медовик">
-                    <h3>Классический Медовик</h3>
-                    <p class="price-info">2800 руб. за 1 кг (мин. вес 1.5 кг)</p>
-                    <p style="padding: 0 15px;">Тонкие медовые коржи, пропитанные сметанно-сливочным кремом. Домашний вкус.</p>
                 </div>
-                <div class="product-card">
-                    <img src="[Фото Сникерс]" alt="Торт Сникерс">
-                    <h3>Сникерс</h3>
-                    <p class="price-info">3200 руб. за 1 кг (мин. вес 2 кг)</p>
-                    <p style="padding: 0 15px;">Шоколадный бисквит, домашняя карамель, арахис и крем-чиз. Для любителей насыщенного вкуса.</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <section id="process" style="background-color: white;">
+    <section id="process" style="background-color: var(--bg-alt);">
         <div class="container">
-            <h2>Как заказать торт? Проще, чем кажется!</h2>
+            <h2>Процесс Заказа: Всего 3 шага</h2>
             <div class="process-steps">
                 <div class="step">
-                    <div class="step-icon">1. 🍰</div>
-                    <h3>Выбор и Идея</h3>
-                    <p>Выберите начинку из нашего каталога или пришлите нам фото желаемого дизайна.</p>
+                    <div class="step-icon">1. 📞</div>
+                    <h3 style="color: var(--text-dark);">Идея или Каталог</h3>
+                    <p style="color: var(--text-dark);">Вы выбираете дизайн, начинку или просто описываете нам ваше видение.</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon">2. 💰</div>
-                    <h3>Расчет и Оплата</h3>
-                    <p>Согласуем вес, дизайн и финальную цену. Вы вносите предоплату 50%.</p>
+                    <div class="step-icon">2. 📝</div>
+                    <h3 style="color: var(--text-dark);">Согласование и Предоплата</h3>
+                    <p style="color: var(--text-dark);">Фиксируем цену, вес и дату. Вы вносите 50% предоплаты.</p>
                 </div>
                 <div class="step">
                     <div class="step-icon">3. 🎁</div>
-                    <h3>Доставка</h3>
-                    <p>Торт будет готов и доставлен вам точно в срок. Вы оплачиваете остаток суммы.</p>
+                    <h3 style="color: var(--text-dark);">Получение в Обнинске</h3>
+                    <p style="color: var(--text-dark);">Самовывоз или доставка по городу. Оплата остатка при получении.</p>
                 </div>
             </div>
         </div>
@@ -191,64 +304,65 @@
 
     <section id="about">
         <div class="container">
-            <h2>Почему выбирают нас?</h2>
-            <div style="text-align: center; margin-bottom: 40px;">
+            <h2>О нас и Наши Принципы</h2>
+            <div style="text-align: center; margin-bottom: 40px; color: var(--text-dark);">
                 <p style="max-width: 800px; margin: 0 auto; font-style: italic;">
-                    Меня зовут [Ваше Имя], и я пеку с любовью, используя только свежие фермерские продукты и натуральные красители. Для меня важно, чтобы каждый торт был произведением искусства и при этом был невероятно вкусным!
+                    Я пеку только дома, в Обнинске, и использую **исключительно натуральные фермерские продукты**. Я не использую маргарин, искусственные усилители вкуса и дешевые смеси. Для ваших ПП-десертов я использую только натуральный сахарозаменитель — эритрит, что позволяет сохранить потрясающий вкус без вреда для фигуры!
                 </p>
-                <p style="margin-top: 20px;">[Ваше личное фото]</p>
             </div>
 
-            <h3 style="margin-top: 40px;">Условия работы</h3>
-            <ul style="max-width: 800px; margin: 0 auto;">
-                <li>**Минимальный вес торта:** от 1.5 кг.</li>
-                <li>**Сроки:** Срочные заказы (менее 48 часов) возможны с наценкой 20%.</li>
-                <li>**Доставка:** По Москве — 500 руб., за МКАД — по тарифу. Возможен самовывоз.</li>
+            <h3 style="margin-top: 40px; color: var(--text-dark);">Условия и гарантии</h3>
+            <ul style="max-width: 800px; margin: 0 auto; color: var(--text-dark);">
+                <li>**География:** Работаем по Обнинску и ближайшим районам.</li>
+                <li>**Минимальный вес:** от 1.5 кг.</li>
+                <li>**ПП-десерты:** Готовим с эритритом, без добавления белой муки.</li>
+                <li>**Доставка:** По Обнинску — 300 руб. (или самовывоз).</li>
             </ul>
         </div>
     </section>
 
-    <section id="contact" style="background-color: white;">
+    <section id="contact">
         <div class="container">
-            <h2>Оставьте заявку</h2>
+            <h2>Начните Расчет Стоимости Прямо Сейчас</h2>
             <div class="contact-grid">
                 <div class="contact-form">
                     <form action="[Здесь должен быть скрипт обработки формы]" method="POST">
                         <label for="name">Ваше Имя:</label>
                         <input type="text" id="name" name="name" required>
 
-                        <label for="phone">Телефон / WhatsApp:</label>
+                        <label for="phone">Телефон / WhatsApp (для связи):</label>
                         <input type="tel" id="phone" name="phone" required>
 
-                        <label for="date">Желаемая дата:</label>
+                        <label for="date">Желаемая дата получения:</label>
                         <input type="date" id="date" name="date">
 
-                        <label for="comment">Описание торта / Идея:</label>
+                        <label for="comment">Опишите вашу идею торта (или приложите фото):</label>
                         <textarea id="comment" name="comment" rows="4"></textarea>
+                        
+                        <label for="photo">Прикрепить фото-пример:</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" style="margin-bottom: 30px;">
 
-                        <button type="submit">Отправить заявку</button>
+                        <button type="submit">Отправить заявку и обсудить детали</button>
                     </form>
                 </div>
-                <div class="contact-info">
-                    <p><strong>Мы всегда на связи!</strong></p>
+                <div class="contact-info" style="color: var(--text-dark);">
+                    <p style="font-weight: bold; font-size: 1.1em;">Удобные способы связи:</p>
                     <p>Телефон: <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
                     <p>WhatsApp/Telegram: <a href="https://wa.me/79991234567" target="_blank">+7 (999) 123-45-67</a></p>
-                    <p>E-mail: <a href="mailto:order@sweetdreams.ru">order@sweetdreams.ru</a></p>
-                    
-                    <h3 style="text-align: left; margin-top: 30px; margin-bottom: 10px;">Самовывоз:</h3>
-                    <p>Москва, ул. Десертная, д. 5 (по предварительной договоренности)</p>
-                    </div>
+                    <p style="margin-top: 30px;">**Самовывоз:** Обнинск, [Ваш адрес] (по договоренности).</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container" style="text-align: center; font-size: 0.9em; padding: 10px 0;">
-            <p>&copy; 2025 SweetDreams. Все права защищены. Создано с любовью.</p>
+        <div class="container" style="text-align: center; font-size: 0.9em; padding: 10px 0; color: var(--text-dark);">
+            <p>&copy; 2025 [SweetDreams]. Обнинск. Все права защищены.</p>
         </div>
     </footer>
 
 </body>
 </html>
+
 
 
