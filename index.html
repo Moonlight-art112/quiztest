@@ -1,60 +1,407 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<!-- Marquiz script start -->
-<script>
-(function(w, d, s, o){
-  var j = d.createElement(s); j.async = true; j.src = 'https://script.marquiz.ru/v2.js';j.onload = function() {
-    if (document.readyState !== 'loading') Marquiz.init(o);
-    else document.addEventListener("DOMContentLoaded", function() {
-      Marquiz.init(o);
-    });
-  };
-  d.head.insertBefore(j, d.head.firstElementChild);
-})(window, document, 'script', {
-    host: '//quiz.marquiz.ru',
-    region: 'ru',
-    id: '6720e48b9f02ba0026853f9e',
-    autoOpen: 15,
-    autoOpenFreq: 'always',
-    openOnExit: true,
-    disableOnMobile: true
-  }
-);
-</script>
-<!-- Marquiz script end -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя Первая Страница</title>
-</head>
+    <title>Торты на заказ | Авторский дизайн и натуральные ингредиенты</title>
+    
+    <style>
+        :root {
+            --primary-color: #DB3081; /* Розовый/ягодный (остается для акцентов) */
+            --text-color: #FFFFFF; /* Белый цвет для текста */
+            --light-bg: #89F2A3; /* Светло-мятный цвет фона */
+            --header-bg: #6BE885; /* Более темный мятный для шапки */
+            --font-main: 'Arial', sans-serif;
+            --section-bg-alt: #FFFFFF; /* Белый цвет для секций с контрастным текстом */
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color); /* Основной текст белый */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: var(--light-bg); /* Мятный фон */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3 {
+            color: var(--text-color); /* Заголовки белые */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #70C887; /* Более темный мятный для разделителя */
+        }
+        
+        /* Особый стиль для секций, где нужен темный текст для контраста */
+        .section-light-text, .section-light-text * {
+            color: var(--text-color) !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Секции, которые должны быть белыми, чтобы текст был ЧЁРНЫМ */
+        .section-dark-text {
+            background-color: var(--section-bg-alt); /* Белый фон */
+        }
+        .section-dark-text, .section-dark-text h2, .section-dark-text h3, .section-dark-text p, .section-dark-text li, .section-dark-text a {
+             color: #333 !important; /* Черный текст для контраста */
+        }
+        .section-dark-text h2, .section-dark-text h3 {
+            color: var(--primary-color) !important; /* Акцентные заголовки */
+        }
+
+
+        /* А. Первый Экран (Header) */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background-color: var(--header-bg); /* Более темный мятный */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top .contacts a {
+            margin-left: 15px;
+            color: var(--text-color); /* Белый */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: url('[Фон с красивым тортом]') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            /* Добавим тень, чтобы белый текст читался на светлых частях изображения */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: white; 
+        }
+
+        .button-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button-primary:hover {
+            background-color: #B42468;
+        }
+
+        /* Б. Каталог/Ассортимент */
+        .categories-nav {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .categories-nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--primary-color); /* Акцентный цвет для ссылок */
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+        }
+        .categories-nav a:hover {
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #fff; /* Фон карточек делаем белым для контраста */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        
+        .product-card h3, .product-card p {
+            color: #333 !important; /* Текст внутри карточек делаем черным */
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            font-size: 1.2em;
+            margin: 15px 0 5px;
+        }
+
+        .price-info {
+            font-weight: bold;
+            color: var(--primary-color) !important;
+            margin-bottom: 10px;
+        }
+
+        /* В. Как Сделать Заказ (Процесс) */
+        .process-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .step {
+            width: 200px;
+            padding: 20px;
+        }
+        .step h3 {
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+        .step-icon {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Д. Контакты и Форма Заказа */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-form label, .contact-form input, .contact-form textarea, .contact-info p, .contact-info a {
+            color: #333; /* Текст формы делаем темным для контраста с белым фоном секции */
+        }
+        
+        .contact-form a {
+            color: var(--primary-color);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+            }
+            .header-top .contacts {
+                margin-top: 10px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+    (function(w, d, s, o){
+      var j = d.createElement(s); j.async = true; j.src = 'https://script.marquiz.ru/v2.js';j.onload = function() {
+        if (document.readyState !== 'loading') Marquiz.init(o);
+        else document.addEventListener("DOMContentLoaded", function() {
+          Marquiz.init(o);
+        });
+      };
+      d.head.insertBefore(j, d.head.firstElementChild);
+    })(window, document, 'script', {
+        host: '//quiz.marquiz.ru',
+        region: 'ru',
+        id: '6720e48b9f02ba0026853f9e',
+        autoOpen: 0, 
+        openOnExit: false 
+      }
+    );
+    </script>
+    </head>
 <body>
 
-    <header>
-        <h1>Добро пожаловать на Мой Сайт!</h1>
-    </header>
+    <div class="header-top">
+        <div class="logo">
+            <a href="#" style="font-size: 1.5em; color: var(--primary-color); text-decoration: none; font-weight: bold;">SweetDreams</a>
+        </div>
+        <div class="contacts">
+            <a href="tel:+79991234567">+7 (999) 123-45-67</a> 
+            <a href="https://wa.me/79991234567" target="_blank">[WA]</a>
+            <a href="https://t.me/yourtelegram" target="_blank">[TG]</a>
+        </div>
+    </div>
 
-    <main>
-        <p>Это абзац текста на моей веб-странице.</p>
-
-<div data-marquiz-id="6720e48b9f02ba0026853f9e"></div>
-<script>(function(t, p) {window.Marquiz ? Marquiz.add([t, p]) : document.addEventListener('marquizLoaded', function() {Marquiz.add([t, p])})})('Button', {id: '6720e48b9f02ba0026853f9e', buttonText: 'Рассчитать стоимость', bgColor: '#db3081', textColor: '#ffffff', rounded: true, shadow: false, blicked: false, fixed: false, disableOnMobile: false})</script>
+    <section class="hero">
+        <h1>Торты на заказ в Москве за 48 часов с авторским дизайном</h1>
+        <p style="font-size: 1.2em;">Только натуральные ингредиенты. Более 50 уникальных начинок.</p>
         
-<p>Я использую Блокнот для написания своего первого HTML-кода.</p>
+        <a href="#marquiz_button" class="button-primary">Рассчитать стоимость торта</a>
+        
+        <div style="display: none;" data-marquiz-id="6720e48b9f02ba0026853f9e"></div>
+        <script>
+        (function(t, p) {window.Marquiz ? Marquiz.add([t, p]) : document.addEventListener('marquizLoaded', function() {Marquiz.add([t, p])})})('Button', {
+            id: '6720e48b9f02ba0026853f9e', 
+            buttonText: 'Рассчитать стоимость торта', // Этот текст скрыт, так как мы используем собственную ссылку
+            fixed: false, 
+            modal: true
+        })
+        </script>
+    </section>
 
-        <h2>Список вещей</h2>
-        <ul>
-            <li>Пункт 1</li>
-            <li>Пункт 2</li>
-            <li>Пункт 3</li>
-        </ul>
+    <section id="catalog">
+        <div class="container">
+            <h2>Наши Десерты</h2>
+            <div class="categories-nav">
+                <a href="#category-cakes">Торты</a>
+                <a href="#category-cupcakes">Капкейки</a>
+                <a href="#category-sets">Наборы</a>
+            </div>
+            
+            <div class="catalog-grid" id="category-cakes">
+                <div class="product-card">
+                    <img src="[Фото Красный Бархат]" alt="Торт Красный Бархат">
+                    <h3>Красный Бархат</h3>
+                    <p class="price-info">3000 руб. за 1 кг (мин. вес 2 кг)</p>
+                    <p style="padding: 0 15px;">Нежные влажные коржи с легким шоколадным ароматом, крем-чиз на сливках.</p>
+                </div>
+                <div class="product-card">
+                    <img src="[Фото Медовик]" alt="Торт Медовик">
+                    <h3>Классический Медовик</h3>
+                    <p class="price-info">2800 руб. за 1 кг (мин. вес 1.5 кг)</p>
+                    <p style="padding: 0 15px;">Тонкие медовые коржи, пропитанные сметанно-сливочным кремом. Домашний вкус.</p>
+                </div>
+                <div class="product-card">
+                    <img src="[Фото Сникерс]" alt="Торт Сникерс">
+                    <h3>Сникерс</h3>
+                    <p class="price-info">3200 руб. за 1 кг (мин. вес 2 кг)</p>
+                    <p style="padding: 0 15px;">Шоколадный бисквит, домашняя карамель, арахис и крем-чиз. Для любителей насыщенного вкуса.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <a href="https://www.google.com" target="_blank">Перейти в Google</a>
-    </main>
+    <section id="process" style="background-color: white;">
+        <div class="container">
+            <h2>Как заказать торт? Проще, чем кажется!</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">1. 🍰</div>
+                    <h3>Выбор и Идея</h3>
+                    <p>Выберите начинку из нашего каталога или пришлите нам фото желаемого дизайна.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2. 💰</div>
+                    <h3>Расчет и Оплата</h3>
+                    <p>Согласуем вес, дизайн и финальную цену. Вы вносите предоплату 50%.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3. 🎁</div>
+                    <h3>Доставка</h3>
+                    <p>Торт будет готов и доставлен вам точно в срок. Вы оплачиваете остаток суммы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Почему выбирают нас?</h2>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p style="max-width: 800px; margin: 0 auto; font-style: italic;">
+                    Меня зовут [Ваше Имя], и я пеку с любовью, используя только свежие фермерские продукты и натуральные красители. Для меня важно, чтобы каждый торт был произведением искусства и при этом был невероятно вкусным!
+                </p>
+                <p style="margin-top: 20px;">[Ваше личное фото]</p>
+            </div>
+
+            <h3 style="margin-top: 40px;">Условия работы</h3>
+            <ul style="max-width: 800px; margin: 0 auto;">
+                <li>**Минимальный вес торта:** от 1.5 кг.</li>
+                <li>**Сроки:** Срочные заказы (менее 48 часов) возможны с наценкой 20%.</li>
+                <li>**Доставка:** По Москве — 500 руб., за МКАД — по тарифу. Возможен самовывоз.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" style="background-color: white;">
+        <div class="container">
+            <h2>Оставьте заявку</h2>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form action="[Здесь должен быть скрипт обработки формы]" method="POST">
+                        <label for="name">Ваше Имя:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="phone">Телефон / WhatsApp:</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="date">Желаемая дата:</label>
+                        <input type="date" id="date" name="date">
+
+                        <label for="comment">Описание торта / Идея:</label>
+                        <textarea id="comment" name="comment" rows="4"></textarea>
+
+                        <button type="submit">Отправить заявку</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <p><strong>Мы всегда на связи!</strong></p>
+                    <p>Телефон: <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                    <p>WhatsApp/Telegram: <a href="https://wa.me/79991234567" target="_blank">+7 (999) 123-45-67</a></p>
+                    <p>E-mail: <a href="mailto:order@sweetdreams.ru">order@sweetdreams.ru</a></p>
+                    
+                    <h3 style="text-align: left; margin-top: 30px; margin-bottom: 10px;">Самовывоз:</h3>
+                    <p>Москва, ул. Десертная, д. 5 (по предварительной договоренности)</p>
+                    </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Мой Сайт. Все права защищены.</p>
+        <div class="container" style="text-align: center; font-size: 0.9em; padding: 10px 0;">
+            <p>&copy; 2025 SweetDreams. Все права защищены. Создано с любовью.</p>
+        </div>
     </footer>
 
 </body>
-
 </html>
