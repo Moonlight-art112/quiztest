@@ -6,22 +6,25 @@
     <title>Торты на заказ | Авторский дизайн и натуральные ингредиенты</title>
     
     <style>
+        /* Импортируем шрифт для всего сайта */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
         :root {
-            --primary-color: #DB3081; /* Розовый/ягодный (остается для акцентов) */
-            --text-color: #FFFFFF; /* Белый цвет для текста */
-            --light-bg: #89F2A3; /* Светло-мятный цвет фона */
-            --header-bg: #6BE885; /* Более темный мятный для шапки */
-            --font-main: 'Arial', sans-serif;
+            --primary-color: #DB3081; /* Розовый/ягодный (Акцент) */
+            --text-color: #FFFFFF; /* Белый цвет для основного текста */
+            --dark-cream-bg: #4B443B; /* Темный кремовый/кофейный фон */
+            --header-bg: #3A352F; /* Еще более темный оттенок для шапки */
             --section-bg-alt: #FFFFFF; /* Белый цвет для секций с контрастным текстом */
+            --font-main: 'Montserrat', sans-serif; /* Красивый, современный шрифт */
         }
 
         body {
             font-family: var(--font-main);
-            color: var(--text-color); /* Основной текст белый */
+            color: var(--text-color); 
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background-color: var(--light-bg); /* Мятный фон */
+            background-color: var(--dark-cream-bg); 
         }
 
         .container {
@@ -32,28 +35,29 @@
         }
 
         h1, h2, h3 {
-            color: var(--text-color); /* Заголовки белые */
+            color: var(--text-color);
             text-align: center;
             margin-bottom: 20px;
+            /* Убрана тень у букв */
         }
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid #70C887; /* Более темный мятный для разделителя */
+            border-bottom: 1px solid #605B54; /* Более светлый кремовый для разделителя */
         }
         
-        /* Особый стиль для секций, где нужен темный текст для контраста */
+        /* Особый стиль для секций, где текст должен быть БЕЛЫМ */
         .section-light-text, .section-light-text * {
             color: var(--text-color) !important;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+            text-shadow: none !important; /* Убираем тень */
         }
         
-        /* Секции, которые должны быть белыми, чтобы текст был ЧЁРНЫМ */
+        /* Секции, которые должны быть БЕЛЫМИ (для контраста) */
         .section-dark-text {
-            background-color: var(--section-bg-alt); /* Белый фон */
+            background-color: var(--section-bg-alt); 
         }
         .section-dark-text, .section-dark-text h2, .section-dark-text h3, .section-dark-text p, .section-dark-text li, .section-dark-text a {
-             color: #333 !important; /* Черный текст для контраста */
+             color: #333 !important; /* Черный текст */
         }
         .section-dark-text h2, .section-dark-text h3 {
             color: var(--primary-color) !important; /* Акцентные заголовки */
@@ -66,179 +70,15 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 5%;
-            background-color: var(--header-bg); /* Более темный мятный */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            background-color: var(--header-bg); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .header-top .contacts a {
-            margin-left: 15px;
-            color: var(--text-color); /* Белый */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .hero {
-            background: url('[Фон с красивым тортом]') no-repeat center center/cover;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            /* Добавим тень, чтобы белый текст читался на светлых частях изображения */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-        }
-
-        .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            color: white; 
-        }
-
-        .button-primary {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .button-primary:hover {
-            background-color: #B42468;
-        }
-
-        /* Б. Каталог/Ассортимент */
-        .categories-nav {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .categories-nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--primary-color); /* Акцентный цвет для ссылок */
-            font-weight: bold;
-            border-bottom: 2px solid transparent;
-        }
-        .categories-nav a:hover {
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background-color: #fff; /* Фон карточек делаем белым для контраста */
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            padding-bottom: 20px;
-        }
-        
-        .product-card h3, .product-card p {
-            color: #333 !important; /* Текст внутри карточек делаем черным */
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .product-card h3 {
-            font-size: 1.2em;
-            margin: 15px 0 5px;
-        }
-
-        .price-info {
-            font-weight: bold;
-            color: var(--primary-color) !important;
-            margin-bottom: 10px;
-        }
-
-        /* В. Как Сделать Заказ (Процесс) */
-        .process-steps {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            text-align: center;
-        }
-        .step {
-            width: 200px;
-            padding: 20px;
-        }
-        .step h3 {
-            color: var(--text-color);
-            font-size: 1.1em;
-        }
-        .step-icon {
-            font-size: 2em;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        /* Д. Контакты и Форма Заказа */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        
-        .contact-form label, .contact-form input, .contact-form textarea, .contact-info p, .contact-info a {
-            color: #333; /* Текст формы делаем темным для контраста с белым фоном секции */
-        }
-        
-        .contact-form a {
-            color: var(--primary-color);
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .contact-form button {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-        }
-        /* Адаптивность для мобильных */
-        @media (max-width: 768px) {
-            .header-top {
-                flex-direction: column;
-            }
-            .header-top .contacts {
-                margin-top: 10px;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+            margin-left
 
     <script>
     (function(w, d, s, o){
@@ -405,3 +245,4 @@
 
 </body>
 </html>
+
